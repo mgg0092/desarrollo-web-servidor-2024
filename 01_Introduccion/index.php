@@ -26,7 +26,6 @@
     echo $frase1 . $frase2;
     echo "<p>$frase1 "." $frase2</p>";
 
-
     ?>
 </body>
 </html>

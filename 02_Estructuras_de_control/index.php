@@ -36,7 +36,6 @@
                 <td>Ejercicios de fechas</td>
             </tr>
         </tbody>
-        
     </table>
 </body>
 </html>
