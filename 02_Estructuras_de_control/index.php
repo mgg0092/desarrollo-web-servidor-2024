@@ -35,6 +35,18 @@
                 </td>
                 <td>Ejercicios de fechas</td>
             </tr>
+            <tr>
+                <td>
+                    <a href="numeros_aleatorios.php">Numeros_Aleatorios.php</a>
+                </td>
+                <td>Ejercicios de numeros aleatorios</td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="Clases_Semana.php">Clases_Semana.php</a>
+                </td>
+                <td>Ejercicios de clases semana</td>
+            </tr>
         </tbody>
     </table>
 </body>
