@@ -15,6 +15,5 @@
     if($dia % 2 == 0) echo "<br>El numero del dia es par";
     else echo "<br>El numero del dia es impar";
     ?>
-    
 </body>
 </html>

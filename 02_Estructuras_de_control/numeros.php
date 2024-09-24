@@ -120,6 +120,19 @@
     else:
         echo "<p>$numero1 y $numero2 son iguales</p>";
     endif;
+
+
+
+
+
+    $numero5 = rand(-10,20);
+    $resultado = match(true) {
+        $numero5 >= -10 && $numero5 < 0 => "El número $numero5 está en el rango [-10,0)",
+        $numero5 >= 0 && $numero5 <= 10 => "El número $numero5 está en el rango [0,10]",
+        $numero5 > 10 && $numero5 <= 20 =>"El número $numero5 está en el rango (10,20]"
+    };
+
+    echo $resultado;
     ?>
 </body>
 </html>
