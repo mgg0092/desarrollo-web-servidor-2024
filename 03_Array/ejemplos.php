@@ -218,16 +218,14 @@
             <tr>
                 <td><?php echo $Alumno?></td>
                 <td><?php echo $Calificacion?></td>
-                <td>
-                    <?php 
-                        if($Calificacion >= 5) {
-                            echo "Aprobado"; 
-                        } else 
-                        { 
-                            echo "Suspenso";
-                        }
-                    ?>
-                </td>
+                <?php 
+                    if($Calificacion >= 5) {
+                        echo "<td class='Aprobado'> Aprobado </td>"; 
+                    } else 
+                    { 
+                        echo "<td class='Suspenso'> Suspenso </td>"; 
+                    }
+                ?>
             </tr>
             <?php
             }
