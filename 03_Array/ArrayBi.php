@@ -15,7 +15,7 @@
         $videojuegos = [
             ["Fifa 24", "Deportes", 70],
             ["Dark Souls", "Soulslike", 50],
-            ["Hollow Knigth", "Plataformas", 30]
+            ["Hollow Knight", "Plataformas", 30]
         ];
 
         foreach ($videojuegos as $videojuego) {
@@ -31,13 +31,44 @@
             </thead>
             <tbody>
                 <?php
+                $nuevo_videojuego = ['Throne of Liberty', 'MMO', 0];
+                array_push($videojuegos, $nuevo_videojuego);
+
+                $_precio = array_column($videojuegos, 2);
+                array_multisort($_precio, SORT_DESC, $videojuegos);
+
                 foreach($videojuegos as $videojuego) { 
                     list($titulo, $categoria, $precio) = $videojuego; ?>
-                <tr>
-                    <td><?php echo $titulo?></td>
-                    <td><?php echo $categoria?></td>
-                    <td><?php echo $precio?></td>
-                </tr>
+                    <tr>
+                        <td><?php echo $titulo?></td>
+                        <td><?php echo $categoria?></td>
+                        <td><?php echo $precio?></td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+        <h3>ORDENAR INVERSO</h3>
+        <table>
+            <thead>
+                <th>Titulo</th>
+                <th>Categoria</th>
+                <th>Precio</th>
+            </thead>
+            <tbody>
+                <?php
+
+                $_categoria = array_column($videojuegos, 1);
+                array_multisort($_categoria, SORT_DESC, $videojuegos);
+
+                foreach($videojuegos as $videojuego) { 
+                    list($titulo, $categoria, $precio) = $videojuego; ?>
+                    <tr>
+                        <td><?php echo $titulo?></td>
+                        <td><?php echo $categoria?></td>
+                        <td><?php echo $precio?></td>
+                    </tr>
                 <?php
                 }
                 ?>
