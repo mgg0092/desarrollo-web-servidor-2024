@@ -28,21 +28,30 @@
                 <th>Titulo</th>
                 <th>Categoria</th>
                 <th>Precio</th>
+                <th>Tipo</th>
             </thead>
             <tbody>
                 <?php
                 $nuevo_videojuego = ['Throne of Liberty', 'MMO', 0];
                 array_push($videojuegos, $nuevo_videojuego);
+                array_push($videojuegos, ['Genshin Impact', 'Accion', 0]);
+                array_push($videojuegos, ['Minecraft', 'Sandbox', 0]);
 
                 $_precio = array_column($videojuegos, 2);
                 array_multisort($_precio, SORT_DESC, $videojuegos);
 
+                for ($i=0; $i < count($videojuegos); $i++) { 
+                    if($videojuegos[$i][2] > 0) $videojuegos[$i][3] = "Es de Pago";
+                    else $videojuegos[$i][3] = "Es Gratis";
+                }
+
                 foreach($videojuegos as $videojuego) { 
-                    list($titulo, $categoria, $precio) = $videojuego; ?>
+                    list($titulo, $categoria, $precio, $Tipo) = $videojuego; ?>
                     <tr>
                         <td><?php echo $titulo?></td>
                         <td><?php echo $categoria?></td>
                         <td><?php echo $precio?></td>
+                        <td><?php echo $Tipo?></td>
                     </tr>
                 <?php
                 }
