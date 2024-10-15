@@ -10,11 +10,33 @@
     Mostrar dichos numeor de la forma que mas os guste
     Crear un formulario donde se intente introducir el maximo valor y compruebe si has acertado -->
     <?php
-        $numeros = [];
-        for ($i=0; $i < 10; $i++) { 
-            $numeros[$i] = rand(1, 10);
-        }
+        $numeros = [1, 5, 3, 9, 20, 15, 22, 11];
 
-        ?>
+        for ($i=0; $i < count($numeros); $i++) { 
+            echo "$numeros[$i] ";
+        }
+    ?>
+    <form action="" method="post">
+        <label for="numero">Numero</label>
+        <input type="text" name="numero" id="numero" placeholder="Introduce el numero">
+        <input type="submit" value="Comprobar">
+    </form>
+
+    <?php
+        if($_SERVER["REQUEST_METHOD"] == "POST") {
+            $numero = $_POST["numero"];
+            $candidato = $numeros[0];
+
+
+            for ($i=0; $i < count($numeros); $i++) { 
+                if($numeros[$i] > $candidato) $candidato = $numeros[$i];
+            }
+
+            $maximo = $candidato;
+
+            if($numero == $maximo) echo "<h1>Has acertdado!! El maximo es $numero</h1>";
+            else echo "<h1>Fallaste!! El maximo es $numero</h1>";
+        }
+    ?>
 </body>
 </html>
