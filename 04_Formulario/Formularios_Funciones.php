@@ -47,8 +47,7 @@
                 $_base = $_POST['base'];
                 $_exponente = $_POST['exponente'];
 
-                if($_base != '' && $_exponente != '') echo "<h2> El resultado del exponente es: " . pow($_base, $_exponente) . "</h2>";
-                else echo '<h2> Introduce la base y el exponente </h2>';
+                comprobarEdad($_base, $_exponente);
             }
         }
     ?>
