@@ -7,25 +7,27 @@
 </head>
 <body>
     <?php
-    define("EDAD", 25);
+    define("EDAD",25);
 
-    $var = "Hola Mundo";
-    //echo $var
+    $var = "hola mundo";
+    //echo $var;
     var_dump($var);
-    
-    $var = true;
+
+    $var = 3;
     var_dump($var);
 
     echo EDAD;
 
-    echo "<br><h2 style='color: orange'>La variable es $var<h2>";
-    
-    $frase1 = "Hola";
-    $frase2 = "Mundo";
+    echo "<br>";
+
+    echo "<h2 style='color: orange'>La variable es $var</h2>";
+
+    $frase1 = "hola";
+    $frase2 = "mundo";
+
+    echo "<p>$frase1 " . "$frase2</p>";
 
     echo $frase1 . $frase2;
-    echo "<p>$frase1 "." $frase2</p>";
-
     ?>
 </body>
 </html>

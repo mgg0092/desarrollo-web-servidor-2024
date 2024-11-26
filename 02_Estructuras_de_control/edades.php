@@ -9,30 +9,32 @@
     <?php
     $edad = rand(-10,140);
 
-    /* IF  */
-    if($edad >= 0 && $edad <= 4) {
-        echo "Es un bebe";
-    } elseif($edad >= 5 && $edad <= 17) {
-        echo "Es menor de edad";
-    } elseif($edad >= 18 && $edad <= 65) {
-        echo "Es un adulto";
-    }elseif ($edad >= 66 && $edad <= 120) {
-        echo "Es un jubilado";
-    } else {
-        echo "ERROR";
-    }
+    /*
+        CON IF Y CON MATCH:
+        - Si la persona tiene entre 0 y 4 años, es un BEBÉ
+        - Si la persona tiene entre 5 y 17 años, es MENOR DE EDAD
+        - Si la persona tiene entre 18 y 65 años, es ADULTO
+        - Si la persona tiene entre 66 y 120 años, es JUBILADO
+        - Si la edad está fuera de rango, es ERROR
+    */
 
+    #   Forma 1
+    if($edad >= 0 and $edad <= 4) echo "EDAD: $edad - BEBÉ";
+    elseif($edad >= 5 and $edad <= 17) echo "EDAD: $edad - MENOR DE EDAD";
+    elseif($edad >= 18 and $edad <= 65) echo "EDAD: $edad - ADULTO";
+    elseif($edad >= 66 and $edad <= 120) echo "EDAD: $edad - JUBILADO";
+    else echo "EDAD: $edad - ERROR";
 
-    /* MATCH */
-    $comparacion = match(true) {
-        $edad >= 0 && $edad <= 4 => "<p>Es un bebe</p>",
-        $edad >= 5 && $edad <= 17 => "<p>Es menor de edad</p>",
-        $edad >= 18 && $edad <= 65 =>"<p>Es un adulto</p>",
-        $edad >= 66 && $edad <= 120 =>"<p>Es un jubilado</p>",
-        default => "<p>ERROR</p>"
+    #   Forma 2
+    $resultado = match(true) {
+        $edad >= 0 and $edad <= 4 => "EDAD: $edad - BEBÉ",
+        $edad >= 5 and $edad <= 17 => "EDAD: $edad - MENOR DE EDAD",
+        $edad >= 18 and $edad <= 65 => "EDAD: $edad - ADULTO",
+        $edad >= 66 and $edad <= 120 => "EDAD: $edad - JUBILADO",
+        default => "EDAD: $edad - ERROR"
     };
 
-    echo $comparacion
+    echo "<h1>$resultado</h1>";
     ?>
 </body>
 </html>

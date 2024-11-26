@@ -97,6 +97,7 @@
     HACERLO DE DOS FORMAS DIFERENTES
     */
 
+    /*
     $numero1 = 3;
     $numero2 = 4;
 
@@ -120,16 +121,15 @@
     else:
         echo "<p>$numero1 y $numero2 son iguales</p>";
     endif;
+    */
 
+    #   Rangos: [-10,0),[0,10],(10,20]
 
-
-
-
-    $numero5 = rand(-10,20);
+    $numero = rand(-10,20);
     $resultado = match(true) {
-        $numero5 >= -10 && $numero5 < 0 => "El número $numero5 está en el rango [-10,0)",
-        $numero5 >= 0 && $numero5 <= 10 => "El número $numero5 está en el rango [0,10]",
-        $numero5 > 10 && $numero5 <= 20 =>"El número $numero5 está en el rango (10,20]"
+        $numero >= -10 && $numero < 0 => "El número $numero está en el rango [-10,0)",
+        $numero >= 0 && $numero <= 10 => "El número $numero está en el rango [0,10]",
+        $numero > 10 && $numero <= 20 => "El número $numero está en el rango (10,20]"
     };
 
     echo $resultado;
