@@ -35,14 +35,29 @@
                 $nombre_imagen = $_FILES["imagen"]["name"];
                 move_uploaded_file($direccion_temporal, "img/$nombre_imagen");
 
-                $sql = "INSERT INTO animes 
-                    (titulo, nombre_estudio, anno_estreno, num_temporadas, imagen)
-                    VALUES
-                    ('$titulo', '$nombre_estudio', $anno_estreno, $num_temporadas, 
-                        './img/$nombre_imagen')
-                ";
+                // $sql = "INSERT INTO animes 
+                //     (titulo, nombre_estudio, anno_estreno, num_temporadas, imagen)
+                //     VALUES
+                //     ('$titulo', '$nombre_estudio', $anno_estreno, $num_temporadas, 
+                //         './img/$nombre_imagen')
+                // ";
 
-                $_conexion -> query($sql);
+                $imagen = "./img/$nombre_imagen";
+
+                // $_conexion -> query($sql);
+
+                $sql = $_conexion -> prepare("INSERT INTO animes 
+                    (titulo, nombre_estudio, anno_estreno, num_temporadas, imagen)
+                    VALUES (?,?,?,?,?");
+
+                $sql -> bind_param("ssiis",
+                $titulo, 
+                $nombre_estudio, 
+                $anno_estreno, 
+                $num_temporadas, 
+                $imagen);
+
+                $sql -> execute();
 
                 /**
                  * INSERT INTO animes
@@ -51,8 +66,6 @@
                  *  ('Doraemon', 'Toei Animation', 1979, 1);
                  * 
                  */
-
-                
             }
         ?>
         <form action="" method="post" enctype="multipart/form-data">

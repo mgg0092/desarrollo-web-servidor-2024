@@ -35,8 +35,25 @@
         <h1>Listado de Animes</h1>
         <?php
             if($_SERVER["REQUEST_METHOD"] == "POST") {
-                $id_anime = $_POST["id_anime"];
-                $sql = "DELETE FROM animes WHERE id_anime = '$id_anime'";
+                // $id_anime = $_POST["id_anime"];
+                // $sql = "DELETE FROM animes WHERE id_anime = '$id_anime'";
+
+                //TODO 1. PREPARACION (PREPARE)
+                //?  Sirve para definir la estructura de la sentencia
+                        $sql = $_conexion -> prepare("DELETE FROM animes WHERE id_anime = ?");
+                
+                //TODO 2. ENLAZADO (BINDING)
+                //?  Vinculamos la interrogaciones con variables y tipos
+                        $sql -> bind_param("i", $id_anime);
+
+                //TODO 3. EJECUCION (EXECUTE)
+                        $sql -> execute();
+
+                //TODO 4. RETRIEVE
+                //?  Sirve para sacar los datos que nos 
+                //?  devuelve el codigo ejecutado (SOLO PARA LOS SELECT)
+                        $resultado -> $sql -> get_result();
+
             }
 
             $sql = "SELECT * FROM animes";

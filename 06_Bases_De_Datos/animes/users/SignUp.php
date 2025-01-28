@@ -24,8 +24,16 @@
            $contrasena_cifrada = password_hash($contrasena,PASSWORD_DEFAULT);
 
 
-           $sql = "INSERT INTO usuarios VALUES ('$usuario', '$contrasena_cifrada')";
-           $_conexion -> query($sql);
+           $sql = $_conexion -> prepare("INSERT INTO usuarios (usuario, contrasena) VALUES (?,?)");
+           
+           $sql -> bind_param("ss",
+           $usuario, 
+           $contrasena_cifrada);
+
+           $sql -> execute();
+
+        //    $sql = "INSERT INTO usuarios VALUES ('$usuario', '$contrasena_cifrada')";
+        //    $_conexion -> query($sql);
        }
    ?>
    <div class="container">
