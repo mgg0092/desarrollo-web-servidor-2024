@@ -56,7 +56,7 @@ class VideogameController extends Controller
      */
     public function create()
     {
-        //
+        return view("videojuegos/create");
     }
 
     /**
@@ -64,7 +64,12 @@ class VideogameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $videojuegos = new Videojuego;
+        $videojuegos -> titulo = $request -> input("titulo");
+        $videojuegos -> pegi = $request -> input("pegi");
+        $videojuegos -> genero = $request -> input("genero");
+        $videojuegos -> save();
+        return redirect('/videojuegos');
     }
 
     /**
@@ -72,7 +77,9 @@ class VideogameController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $videojuegos = Videojuego::find($id);
+
+        return view('videojuegos/show', ["videojuegos" => $videojuegos]);
     }
 
     /**
